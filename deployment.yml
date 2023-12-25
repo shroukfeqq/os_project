@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymentwith3pods
+  labels:
+
+spec:
+  selector:
+    matchLabels:
+      app: finaltask
+  replicas: 3
+  template: 
+    metadata:
+      name: myfirstpod
+      labels:
+        app: finaltask
+
+    spec:
+      containers:
+        - image: shroukkhaled/final_image
+          name: container1
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
